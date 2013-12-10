@@ -13,5 +13,20 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	//return View::make('hello');
+	
+	// Con la funcion with() podemos traer todos los vendedores
+    // con sus respectivos productos. Esta funcion recibe como parametro
+    // alguna relacion que tenga el modelo al que se este llamando y
+    // la incluye en los resultados que devuelve el get()
+    $vendedores = vendedor::with('productos')->get();
+    return View::make('inicio', array('vendedores'=> $vendedores));
 });
+
+Route::get('vendedor', array('uses'=>'VendedorController@mostrarVendedores'));
+ 
+Route::post('vendedor', 'VendedorController@crearVendedor');
+ 
+Route::get('producto', 'ProductoController@mostrarProductos');
+ 
+Route::post('producto', 'ProductoController@crearProducto');
