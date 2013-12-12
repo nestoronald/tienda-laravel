@@ -8,11 +8,11 @@
   <!-- Aqui listamos todo los vendedores -->
   @foreach($vendedores as $vendedor)	
 	<div class="panel panel-primary">
-		<div class="panelheading">{{ $vendedor->nombre.''.$vendedor->apellido}}</div>
+		<div class="panelheading">{{ $vendedor->nombre.' '.$vendedor->apellido}}</div>
 		<ul class="list-group">
 			<!-- aqui esta la lsita de todo los productos -->
 			@foreach($vendedor->productos as $producto)
-			<li class="list-group-item">{{ $producto->descripcion.''.$producto->precio}}</li>
+			<li class="list-group-item">{{ $producto->descripcion.' '.$producto->precio}}</li>
 			@endforeach
 		</ul>
 	</div>

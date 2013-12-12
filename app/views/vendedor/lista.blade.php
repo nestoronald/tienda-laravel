@@ -1,5 +1,5 @@
 @extends('plantilla')
-@action('contenido')
+@section('contenido')
 <div class="row marketing">
 	<h3>Crear Vendedor</h3>
 	{{ Form::open(array('url'=>'vendedor'))}}
